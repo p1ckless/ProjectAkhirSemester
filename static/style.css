@@ -1,3 +1,22 @@
 .text1 {
   text-align: center;
 }
+
+.admin-menu {
+  position: relative;
+  bottom: 85px;
+  left: 20px;
+}
+
+.admin-profile {
+  height: 120px;
+  position: relative;
+  bottom: 80px;
+  left: 40px;
+}
+
+.admin-name {
+  position: relative;
+  bottom: 100px;
+  left: 45px;
+}
