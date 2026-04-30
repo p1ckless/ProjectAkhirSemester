@@ -7,6 +7,7 @@ body {
 }
 
 .admin-section {
+  margin: 0;
   position: relative;
   bottom: 85px;
   left: 20px;
@@ -29,10 +30,6 @@ body {
   background-color: #0080FF;
   width: 280px;
   min-height: 100vh;
-}
-
-img {
-  background-color: #0080FF;
 }
 
 pre {
