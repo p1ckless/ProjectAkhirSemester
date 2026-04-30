@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 .text1 {
   text-align: center;
 }
@@ -24,7 +28,15 @@
 .layout-utama {
   background-color: #0080FF;
   width: 280px;
-  min-height: 10vh;
+  min-height: 100vh;
+}
+
+img {
+  background-color: #0080FF;
+}
+
+pre {
+  color: #FFFF;
 }
 
 .admin-option {
