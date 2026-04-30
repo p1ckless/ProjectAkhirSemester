@@ -21,6 +21,12 @@
   left: 45px;
 }
 
+.layout-utama {
+  background-color: blue;
+  width: 280px;
+  min-height: 100vh;
+}
+
 .admin-option {
   list-style: none;
   position: relative;
