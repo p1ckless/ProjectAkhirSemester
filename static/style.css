@@ -23,4 +23,6 @@
 
 .admin-option {
   list-style: none;
+  position: relative;
+  left: 15px;
 }
