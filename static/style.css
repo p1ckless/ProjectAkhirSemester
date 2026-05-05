@@ -1,36 +1,46 @@
 body {
   margin: 0;
+  padding: 0;
 }
 
 .text1 {
   text-align: center;
 }
 
-.admin-menu {
+.layout-utama {
+  background-color: #0080FF;
+  height: 100vh;
   margin: 0;
-  position: relative;
-  bottom: 85px;
-  left: 20px;
+  padding: 0;
+  width: 300px;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.admin-menu {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .admin-profile-picture {
-  height: 120px;
-  position: relative;
-  bottom: 80px;
-  left: 40px;
+  width: 70px;
+  margin-bottom: 20px;
 }
 
 .admin-name {
-  position: relative;
-  bottom: 100px;
-  left: 45px;
+  
 }
 
-.layout-utama {
-  background-color: #0080FF;
-  width: 280px;
-  min-height: 100vh;
+.profile span {
+  display: block;
+  font-size: 14px;
+  margin-top: 5px;
 }
+
 
 pre {
   color: #FFFF;
