@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -5,14 +10,16 @@ body {
 
 .text1 {
   text-align: center;
+  color: black;
 }
 
 .layout-utama {
   background-color: #0080FF;
-  height: 100vh;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
   margin: 0;
-  padding: 0;
-  width: 300px;
 }
 
 .profile {
@@ -32,7 +39,7 @@ body {
 }
 
 .admin-name {
-  
+  margin-top: 0px;
 }
 
 .profile span {
@@ -49,12 +56,15 @@ pre {
 .admin-option {
   color: #FFFF;
   list-style: none;
-  position: relative;
   left: 15px;
 }
 
+.admin-option h1 {
+  color: black;
+}
+
 h1 {
-  color: ##38bdf8;
+  color: #38bdf8;
 }
 
 a {
