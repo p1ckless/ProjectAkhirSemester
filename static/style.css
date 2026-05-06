@@ -13,15 +13,6 @@ body {
   color: black;
 }
 
-.sidebar {
-  background-color: #0080FF;
-  min-height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 0;
-}
-
 .admin-profile {
   display: flex;
   flex-direction: column;
@@ -48,9 +39,13 @@ body {
   margin-top: 5px;
 }
 
-
-pre {
-  color: #FFFF;
+.sidebar {
+  background-color: #0080FF;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
 }
 
 .sidebar-item {
@@ -61,6 +56,10 @@ pre {
 
 .sidebar-item h1 {
   color: black;
+}
+
+pre {
+  color: #FFFF;
 }
 
 h1 {
