@@ -13,7 +13,7 @@ body {
   color: black;
 }
 
-.layout-utama {
+.sidebar {
   background-color: #0080FF;
   min-height: 100vh;
   position: absolute;
@@ -22,7 +22,7 @@ body {
   margin: 0;
 }
 
-.profile {
+.admin-profile {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,7 +38,7 @@ body {
   margin-bottom: 20px;
 }
 
-.admin-name {
+.admin-greeting {
   margin-top: 0px;
 }
 
@@ -53,13 +53,13 @@ pre {
   color: #FFFF;
 }
 
-.admin-option {
+.sidebar-item {
   color: #FFFF;
   list-style: none;
   left: 15px;
 }
 
-.admin-option h1 {
+.sidebar-item h1 {
   color: black;
 }
 
