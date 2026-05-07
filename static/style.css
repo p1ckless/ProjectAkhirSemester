@@ -48,27 +48,22 @@ body {
   margin: 0;
 }
 
+
+
 .sidebar-menu {
-  margin-top: 50px;
+  margin-top: 75px;
 }
 
 .sidebar-list {
   color: #FFFF;
   list-style: none;
-  left: 15px;
+  margin-left: 20px;
 }
 
-.sidebar-item h1 {
-  color: black;
+h3 {
+  margin-left: 20px;
 }
 
-pre {
-  color: #FFFF;
-}
-
-h1 {
-  color: #38bdf8;
-}
 
 a {
   text-decoration: none;
