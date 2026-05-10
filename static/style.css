@@ -48,10 +48,24 @@ body {
   margin: 0;
 }
 
-
-
 .sidebar-menu {
   margin-top: 75px;
+}
+
+.sidebar-item-information {
+  margin-top: 50px;
+}
+
+.sidebar-item-management-product {
+  margin-top: 50px;
+}
+
+.sidebar-item-transaction {
+  margin-top: 50px;
+}
+
+.sidebar-item-another-option {
+  margin-top: 50px;
 }
 
 .sidebar-list {
