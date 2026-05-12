@@ -21,15 +21,16 @@ body {
 
 .admin-menu {
   text-align: center;
+  margin-top: 5px;
   margin-bottom: 20px;
+  font-size: 30px;
 }
 
 .admin-profile-picture {
-  width: 110px;
+  width: 150px;
 }
 
 .admin-greeting {
-  margin-top: 0px;
   display: flex;
   align-items: center;
   font-size: 20px;
@@ -54,6 +55,7 @@ body {
   top: 0;
   left: 0;
   margin: 0;
+  width: 240px;
 }
 
 .sidebar-menu {
