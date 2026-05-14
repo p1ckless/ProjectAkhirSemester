@@ -29,7 +29,8 @@ body {
 .admin-profile-picture {
   width: 150px;
   padding-right: 15px;
-
+  top: 20;
+  align-items: center;
 }
 
 .admin-greeting {
@@ -61,7 +62,7 @@ body {
 }
 
 .sidebar-menu {
-  margin-top: 75px;
+  margin-top: 55px;
 }
 
 .sidebar-list {
@@ -69,6 +70,10 @@ body {
   list-style: none;
   margin-left: 20px;
   padding-left: 15px;
+}
+
+.sidebar-list li {
+  margin-bottom: 5px;
 }
 
 h3 {
