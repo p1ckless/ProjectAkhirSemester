@@ -6,6 +6,7 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #d9eeff;
 }
 
 nav {
@@ -33,6 +34,14 @@ nav ul {
     align-items: center;
     padding: 10px 20px;
     gap: 15px;
+}
+
+.nav-left{
+  justify-content: flex-start;
+}
+
+.nav-right {
+  justify-self: start;
 }
 
 .tittle {
