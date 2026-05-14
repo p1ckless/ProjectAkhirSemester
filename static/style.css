@@ -8,8 +8,6 @@ body {
   padding: 0;
 }
 
-
-
 .tittle {
   text-align: center;
   color: black;
@@ -23,13 +21,15 @@ body {
 
 .admin-menu {
   text-align: center;
-  margin-top: 5px;
+  padding-right: 15px;
   margin-bottom: 20px;
   font-size: 30px;
 }
 
 .admin-profile-picture {
   width: 150px;
+  padding-right: 15px;
+
 }
 
 .admin-greeting {
@@ -70,23 +70,6 @@ body {
   margin-left: 20px;
   padding-left: 15px;
 }
-
-.sidebar-item-information {
-  margin-top: 50px;
-}
-
-.sidebar-item-management-product {
-  margin-top: 50px;
-}
-
-.sidebar-item-transaction {
-  margin-top: 50px;
-}
-
-.sidebar-item-another-option {
-  margin-top: 50px;
-}
-
 
 h3 {
   margin-left: 20px;
