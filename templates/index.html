@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!--____-->
+  <!--Import icon dari font awesome website-->
   <script src="https://kit.fontawesome.com/5214fa6ca3.js" crossorigin="anonymous"></script>
+  <!--Menghubungkan html dan css-->
   <link rel="stylesheet" href="{{ url_for ('static', filename='style.css')}}"/>
   <title>Beranda Admin</title>
 </head>
@@ -13,9 +14,50 @@
   <nav>
     <h1 class="tittle"> Beranda Admin </h1>
   </nav>
-  
-  
-  
+  <!--Navbar-->
+  <nav>
+    <div class="nav-bar">
+        <div class="nav-left">
+          <img src="/static/image/logo.svg"
+          alt="Logo"
+          width="70"
+          height="70">
+        </div>
+        
+        <span class="nav-tittle">Inomart</span>
+
+        <ul class="nav-right">
+            <li>
+                <a href="#">
+                    <img src="/static/image/bell-notification-ui-svgrepo.svg"
+                         alt="Notifikasi"
+                         width="30"
+                         height="30">
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <img src="/static/image/setting-svgrepo.svg"
+                         alt="Setting"
+                         width="30"
+                         height="30">
+                </a>
+            </li>    
+            <li>
+                <a href="#">
+                    <img src="/static/image/logout-line-svgrepo.svg"
+                         alt="Keluar"
+                         width="30"
+                         height="30">
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+  <!--Sidebar-->
+>>>>>>> f6b73ebb898725fd28330baf1412e5c3979a344a
   <div class="sidebar">
     
     <div class="admin-profile">
@@ -111,9 +153,11 @@
           </li>
         </ul>
       </div>
+
     </div>
   
   </div>
   
+
 </body>
 </html>
