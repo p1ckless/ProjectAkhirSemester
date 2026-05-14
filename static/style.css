@@ -89,26 +89,22 @@ nav ul {
 .admin-profile-picture {
   width: 150px;
   padding-right: 15px;
-  top: 20;
+  top: -20px;
   align-items: center;
 }
 
 .admin-greeting {
+  position: relative;
   display: flex;
   align-items: center;
   font-size: 20px;
+  top: -20px;  
 }
 
 .admin-greeting-name {
   text-align: center;
   font-size: 18px;
   font-weight: bold;
-}
-
-.profile span {
-  display: block;
-  font-size: 14px;
-  margin-top: 5px;
 }
 
 .sidebar {
