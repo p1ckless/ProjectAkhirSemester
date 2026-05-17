@@ -83,12 +83,12 @@ nav ul {
   text-align: center;
   padding-right: 15px;
   margin-bottom: 20px;
-  font-size: 30px;
+  font-size: 24px;
 }
 
 .admin-profile-picture {
   position: relative;
-  width: 150px;
+  width: 135px;
   padding-right: 15px;
   bottom: 25px;
   align-items: center;
@@ -98,7 +98,7 @@ nav ul {
   position: relative;
   display: flex;
   align-items: center;
-  font-size: 24px;
+  font-size: 20px;
   bottom: 45px;
   right: 8px;
 }
@@ -126,7 +126,7 @@ nav ul {
 .sidebar-menu {
   position: relative;
   margin-top: 55px;
-  bottom: 34px;
+  bottom: 55px;
 }
 
 .sidebar-list {
