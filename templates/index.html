@@ -13,8 +13,6 @@
   <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
   </style>
-  <!-- Import chart.js untuk membuat grafik laporan penjualan -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 </head>
 
 <body>
@@ -157,7 +155,38 @@
         </ul>
       </div>
     </div>
-  
-  <canvas id="LaporanPenjualan"></canvas>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <div class="isiGrafik">
+    <canvas id="grafikLaporanPenjualan"></canvas>
+  </div>
+  <script>
+    const xHari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat' ]
+    const yHasilPenjualan = {{data_penjualan | tojson}}
+    const warnaGrafik = '#0080FF'
+    const grafik = document.getElementById('grafikLaporanPenjualan');
+
+    new Chart(grafik, {
+      type: 'bar',
+      data: {
+        labels: xHari,
+        datasets: [{
+          label: 'Laporan penjualan minggu ini ',
+          data: yHasilPenjualan,
+          backgroundColor: warnaGrafik,
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive : false,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+</script>
 </body>
 </html>

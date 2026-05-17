@@ -149,3 +149,21 @@ a {
   text-decoration: none;
   color: #FFFF;
 }
+
+.isiGrafik {
+  background-color: #FFFF;
+  padding: 20px;
+  width: fit-content;
+  margin-top: 75px;
+  margin-left: 370px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);;
+  display: flex;
+  justify-content: center;
+}
+
+#grafikLaporanPenjualan {
+  align-items: center;
+  display: inline-block;
+  width: 800px;
+  height: 400px;
+}
