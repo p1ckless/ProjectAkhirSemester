@@ -114,6 +114,7 @@ nav ul {
 
 .sidebar {
   background-color: #0080FF;
+  font-family: "Inter", sans-serif;
   min-height: 100vh;
   position: fixed;
   top: 0;
