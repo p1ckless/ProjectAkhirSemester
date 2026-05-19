@@ -167,7 +167,21 @@ nav ul {
   width: 250px;
 }
 
+.fa-box-open {
+  color: #1791C5;
+}
 
+.fa-circle-exclamation {
+  color: #DC2626;
+}
+
+.fa-cash-app {
+  color: #22C55E;
+}
+
+.fa-chart-column {
+  color: blue;
+}
 h3 {
   margin-left: 20px;
 }
