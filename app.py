@@ -27,7 +27,7 @@ def home():
       "Kamis": {
         "makanan" : 6,
         "minuman" : 7,
-        "alat tulis" : 15
+        "alat tulis" : 5
       },
       "Jumat": {
         "makanan" : 10,

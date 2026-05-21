@@ -193,6 +193,7 @@
   <script>
     const xHari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat' ]
     const yHasilPenjualan = {{data_penjualan | tojson}}
+    const hasil_penjualan = {{ grafik_penjualan | tojson }}
     const warnaGrafik = '#0080FF'
     const grafik = document.getElementById('grafikLaporanPenjualan')
 
@@ -201,7 +202,7 @@
       data: {
         labels: xHari,
         datasets: [{
-          label: 'Laporan penjualan minggu ini ',
+          label: 'Laporan penjualan',
           data: yHasilPenjualan,
           backgroundColor: warnaGrafik,
           borderWidth: 1
@@ -209,6 +210,22 @@
       },
       options: {
         responsive : false,
+        plugins: {
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                const hari = xHari[context.dataIndex]
+                const dataHari = grafik_penjualan[hari]
+                return [
+                  "Makanan:" + dataHari["makanan"],
+                  "Minuman:" + dataHari["minuman"],
+                  "Alat tulis:" + dataHari["alat tulis"]
+                  ]
+              }
+            }
+          }
+        },
+              
         scales: {
           y: {
             beginAtZero: true
