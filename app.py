@@ -12,7 +12,7 @@ def home():
       "Senin": {
         "makanan" : 5,
         "minuman" : 2,
-        "alat tulis" : 5
+        "alat tulis" : 2
       },
       "Selasa": {
         "makanan" : 10,
