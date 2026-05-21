@@ -112,6 +112,11 @@ nav ul {
   right: 6px;
 }
 
+a .admin-greeting-name {
+  text-decoration: none;
+  color: black;
+}
+
 .sidebar {
   background-color: #0080FF;;
   font-family: "Inter", sans-serif;
@@ -188,7 +193,7 @@ h3 {
 }
 
 
-a {
+li a {
   text-decoration: none;
   color: #FFFF;
 }
