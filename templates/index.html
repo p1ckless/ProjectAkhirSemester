@@ -215,12 +215,15 @@
   <!--Grafik hasil penjualan-->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <div class="isiGrafik">
-    <canvas id="grafikLaporanPenjualan"></canvas>
+    <canvas id="grafikLaporanPenjualan"
+    data-penjualan="{{data_penjualan | tojson }}"
+    grafik-penjualan="{{grafik_penjualan | tojson }}"
+    ></canvas>
   </div>
   <script>
     const xHari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat' ]
-    const yHasilPenjualan = {{data_penjualan | tojson}}
-    const grafikPenjualan = {{ grafik_penjualan | tojson }}
+    const yHasilPenjualan = JSON.parse(document.getElementById("grafikLaporanPenjualan").dataset.penjualan)
+    const grafikPenjualan = JSON.parse(document.getElementById("grafikLaporanPenjualan").dataset.grafik)
     const warnaGrafik = '#0080FF'
     const grafik = document.getElementById('grafikLaporanPenjualan')
 
