@@ -160,7 +160,12 @@ a .admin-greeting-name {
 
 .card-value-product{
   background-color: #FFFF;
-width: 280px;
+  width: 280px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .card-value-stock{

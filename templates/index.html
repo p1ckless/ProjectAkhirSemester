@@ -104,7 +104,23 @@
         </ul>
       </div>
       
-      
+      <div class="sidebar-item-product">
+        <h3>Pengelolaan Produk</h3>
+        <ul class="sidebar-list">
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-box"></i>
+              <span>Tambah Data Barang</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-pen-to-square"></i>
+              <span>Daftar Stok</span>
+            </a>
+          </li>
+        </ul>
+      </div>
       <div class="sidebar-item-transaction">
         <h3>Transaksi</h3>
         <ul class="sidebar-list">
@@ -165,24 +181,27 @@
   <div class="info-card">
     <div class="card-value-product">
       <h3>Total Produk</h3>
-      <i class="fa-solid fa-box-open"></i>
       <p>{{ card_product }}</p>
     </div>
+    <!-- icon -->
+    <i class="fa-solid fa-box-open"></i>   
     <div class="card-value-stock">
       <h3>Stok Menipis</h3>
-      <i class="fa-solid fa-circle-exclamation"></i>
       <p>{{ card_stock }}</p>
     </div>
+    <i class="fa-solid fa-circle-exclamation"></i>
     <div class="card-value-transaction">
       <h3>Transaksi hari ini</h3>
-      <i class="fa-brands fa-cash-app"></i>
       <p>{{ card_transaction  }}</p>
     </div>
+    <!-- icon -->
+    <i class="fa-brands fa-cash-app"></i>
     <div class="card-value-income">
       <h3>Pendapatan</h3>
-      <i class="fa-solid fa-chart-bar"></i>
       <p>{{ card_income }}</p>
     </div>
+    <!-- icon -->
+    <i class="fa-solid fa-chart-bar"></i>
   </div>
   
   <!--Grafik hasil penjualan-->

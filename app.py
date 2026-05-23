@@ -15,8 +15,8 @@ def home():
         "alat tulis" : 2
       },
       "Selasa": {
-        "makanan" : 10,
-        "minuman" : 15,
+        "makanan" : 0,
+        "minuman" : 5,
         "alat tulis" : 5
       },
       "Rabu": {
