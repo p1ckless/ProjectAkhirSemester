@@ -180,27 +180,35 @@
 <!--Informasi Card-->
   <div class="info-card">
     <div class="card-value-product">
-      <h3>Total Produk</h3>
-      <p>{{ card_product }}</p>
+      <div class="card-content-product">
+        <h3>Total Produk</h3>
+        <p>{{ card_product }}</p>
+      </div>
+      <!-- icon -->
+      <i class="fa-solid fa-box-open"></i>  
     </div>
-    <!-- icon -->
-    <i class="fa-solid fa-box-open"></i>   
     <div class="card-value-stock">
-      <h3>Stok Menipis</h3>
-      <p>{{ card_stock }}</p>
+      <div class="card-content-stock">
+        <h3>Stok Menipis</h3>
+        <p>{{ card_stock }}</p>
+      </div>
+      <!-- icon -->
+      <i class="fa-solid fa-circle-exclamation"></i>
     </div>
-    <i class="fa-solid fa-circle-exclamation"></i>
     <div class="card-value-transaction">
-      <h3>Transaksi hari ini</h3>
-      <p>{{ card_transaction  }}</p>
+      <div class="card-content-transaction">
+        <h3>Transaksi hari ini</h3>
+        <p>{{ card_transaction  }}</p>
+      </div>
+      <!-- icon -->
+      <i class="fa-brands fa-cash-app"></i>
     </div>
-    <!-- icon -->
-    <i class="fa-brands fa-cash-app"></i>
     <div class="card-value-income">
-      <h3>Pendapatan</h3>
-      <p>{{ card_income }}</p>
-    </div>
-    <!-- icon -->
+      <div class="card-content-income">
+        <h3>Pendapatan</h3>
+        <p>{{ card_income }}</p>
+      </div>
+      <!-- icon -->
     <i class="fa-solid fa-chart-bar"></i>
   </div>
   

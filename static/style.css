@@ -151,7 +151,7 @@ a .admin-greeting-name {
 .info-card {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 48px;
   margin-top: 20px;
   margin-bottom: 20px;
   margin-left: 350px;
@@ -160,48 +160,120 @@ a .admin-greeting-name {
 
 .card-value-product{
   background-color: #FFFF;
-  width: 280px;
-  display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  border-radius: 10px;
+  display: flex;
+  width: 280px;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.card-value-product h3 {
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+.card-value-product p {
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .card-value-stock{
   background-color: #FFFF;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
   width: 280px;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.card-value-stock h3 {
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+.card-value-stock p {
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .card-value-transaction{
   background-color: #FFFF;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
   width: 280px;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.card-value-transaction h3 {
+  margin-left: 10px;
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+.card-value-transaction p {
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .card-value-income{
   background-color: #FFFF;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
   width: 280px;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.card-value-income h3 {
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+.card-value-income p {
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .fa-box-open {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  font-size: 48px;
   color: #1791C5;
 }
 
 .fa-circle-exclamation {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  font-size: 45px;
   color: #DC2626;
 }
 
 .fa-cash-app {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  font-size: 50px;
   color: #22C55E;
 }
 
 .fa-chart-bar {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  font-size: 45px;
   color: blue;
 }
+
 h3 {
   margin-left: 20px;
 }
-
 
 li a {
   text-decoration: none;
