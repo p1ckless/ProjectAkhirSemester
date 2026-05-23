@@ -71,11 +71,6 @@ nav ul {
   padding: 0;
 }
 
-.tittle {
-  text-align: center;
-  color: black;
-}
-
 .admin-profile {
   display: flex;
   flex-direction: column;
