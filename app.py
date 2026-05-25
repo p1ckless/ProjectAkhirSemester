@@ -6,7 +6,9 @@ def home():
     totalProduk = 10
     stokMenipis = 2
     transaksiHariIni = 9
-    pendapatan = 1000000
+    pendapatan = 2500000
+
+    format_pendapatan = "Rp {:,.0f}".format(pendapatan).replace(",", ".")
 
     hasil_penjualan = {
       "Senin": {
@@ -45,7 +47,7 @@ def home():
                         card_product=totalProduk, 
                         card_stock=stokMenipis, 
                         card_transaction=transaksiHariIni, 
-                        card_income=pendapatan,
+                        card_income=format_pendapatan,
                         grafik_penjualan=hasil_penjualan)
 
 if __name__=='__main__':

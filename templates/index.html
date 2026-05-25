@@ -218,23 +218,42 @@
   <div class="isiGrafik">
     <canvas id="grafikLaporanPenjualan"></canvas>
   </div>
+
+  <!-- bagian perbandingan Grafik -->
+  <div id="breakdownWrap">
+  <div>
+    <p id="judulBreakdown"></p>
+    <button id="tutupBreakdown">Tutup ✕</button>
+  </div>
+  <div>
+    <div><p>Makanan</p><p id="dataMakanan">—</p></div>
+    <div><p>Minuman</p><p id="dataMinuman">—</p></div>
+    <div><p>Alat tulis</p><p id="dataAlatTulis">—</p></div>
+  </div>
+  <div>
+    <canvas id="chartBreakdown"></canvas>
+  </div>
+</div>
   <script>
     const xHari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat' ]
     const yHasilPenjualan = {{data_penjualan | tojson}}
-    console.log(yHasilPenjualan)
     const grafikPenjualan = {{grafik_penjualan | tojson}}
     const warnaGrafik = '#0080FF'
+    const warnaGrafikClicked = '#FF6B35'
+    let clickedBarIndex = null
+    let grafikBreakdown = null
     const grafik = document.getElementById('grafikLaporanPenjualan')
-
-    new Chart(grafik, {
+    const backgroundColors = () => xHari.map((_, index) => index === clickedBarIndex ? warnaGrafikClicked : warnaGrafik)
+    const chartUtama =new Chart(document.getElementById('grafikLaporanPenjualan'), {
       type: 'bar',
       data: {
         labels: xHari,
         datasets: [{
           label: 'Laporan Penjualan',
           data: yHasilPenjualan,
-          backgroundColor: warnaGrafik,
-          borderWidth: 1
+          backgroundColor: backgroundColors(),
+          borderWidth: 0,
+          borderRadius: 4,
         }]
       },
       options: {
@@ -247,21 +266,89 @@
                 const hari = xHari[context.dataIndex]
                 const dataHari = grafikPenjualan[hari]
                 return [
-                  "Makanan:" + dataHari["makanan"],
-                  "Minuman:" + dataHari["minuman"],
-                  "Alat tulis:" + dataHari["alat tulis"]
-                  ]
-              }
+                  "Makanan:" + dataHari["makanan"].toLocaleString(),
+                  "Minuman:" + dataHari["minuman"].toLocaleString(),
+                  "Alat tulis:" + dataHari["alat tulis"].toLocaleString(),
+                  "Total" + context.parsed.y.toLocaleString()
+                ]
+              },
+              title: function(context) {
+                return [context[0].label]
+            }
+          }
+        }
+        },
+        scales: {
+          x: { grid: { display: false } , ticks: { autoSkip: false, maxRotation: 0, minRotation: 0 } },
+          y: { beginAtZero: true  },
+        },
+        onClick: function(evt, elements) {
+          if (!elements.length) return
+          const index = elements[0].index
+          if (clickedBarIndex === index) {
+            clickedBarIndex = null
+            document.getElementById('breakdownWrap').style.display = 'none'
+          } else {
+            clickedBarIndex = index
+            munculkanBreakdown(index)
+          }
+            chartUtama.data.datasets[0].backgroundColor = backgroundColors()
+            chartUtama.update()
+        },
+        onHover: function(evt, elements) {
+          evt.native.target.style.cursor = elements.length ? 'pointer' : 'default'
+        }
+      }
+    })
+    function munculkanBreakdown(index) {
+      const hari = xHari[index]
+      const dataHari = grafikPenjualan[hari]
+      document.getElementById('judulBreakdown').textContent = hari
+      document.getElementById('dataMakanan').textContent = dataHari["makanan"].toLocaleString()
+      document.getElementById('dataMinuman').textContent = dataHari["minuman"].toLocaleString()
+      document.getElementById('dataAlatTulis').textContent = dataHari["alat tulis"].toLocaleString()
+      document.getElementById('breakdownWrap').style.display = 'block'
+
+      if (grafikBreakdown) grafikBreakdown.destroy()
+
+      grafikBreakdown = new Chart(document.getElementById("chartBreakdown"), {
+        type: 'bar',
+      data: {
+        labels: ['Makanan', 'Minuman', 'Alat tulis'],
+        datasets: [{
+          label: hari,
+          data: [dataHari["makanan"], dataHari["minuman"], dataHari["alat tulis"]],
+          backgroundColor: ['#639922', '#378ADD', '#D85A30'],
+          borderWidth: 0,
+          borderRadius: 4,
+        }]
+      },
+      options: {
+        responsive : true,
+        maintainAspectRatio : false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                return "" + context.label + ";" + context.parsed.y.toLocaleString() + " unit"
             }
           }
         },
         scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
+          x: { grid: { display: false } },
+          y: { beginAtZero: true  },
+        },
+      },
+     })
+    }
+      document.getElementById('tutupBreakdown').addEventListener('click', function() {
+      clickedBarIndex = null
+      chartUtama.data.datasets[0].backgroundColor = backgroundColors()
+      chartUtama.update()
+      document.getElementById('breakdownWrap').style.display = 'none'
     })
+
 </script>
 </body>
 </html>
