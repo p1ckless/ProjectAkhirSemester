@@ -5,7 +5,7 @@ app = Flask(__name__)
 def home():
     totalProduk = 10
     stokMenipis = 2
-    transaksiHariIni = 7
+    transaksiHariIni = 9
     pendapatan = 1000000
 
     hasil_penjualan = {
