@@ -56,7 +56,7 @@
             </li>
         </ul>
     </div>
-</nav>
+  </nav>
 
   <!--Sidebar-->
   <div class="sidebar">
@@ -210,20 +210,19 @@
       </div>
       <!-- icon -->
     <i class="fa-solid fa-chart-bar"></i>
+    </div>
   </div>
   
   <!--Grafik hasil penjualan-->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <div class="isiGrafik">
-    <canvas id="grafikLaporanPenjualan"
-    data-penjualan="{{data_penjualan | tojson }}"
-    grafik-penjualan="{{grafik_penjualan | tojson }}"
-    ></canvas>
+    <canvas id="grafikLaporanPenjualan"></canvas>
   </div>
   <script>
     const xHari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat' ]
-    const yHasilPenjualan = JSON.parse(document.getElementById("grafikLaporanPenjualan").dataset.penjualan)
-    const grafikPenjualan = JSON.parse(document.getElementById("grafikLaporanPenjualan").dataset.grafik)
+    const yHasilPenjualan = {{data_penjualan | tojson}}
+    console.log(yHasilPenjualan)
+    const grafikPenjualan = {{grafik_penjualan | tojson}}
     const warnaGrafik = '#0080FF'
     const grafik = document.getElementById('grafikLaporanPenjualan')
 
@@ -240,6 +239,7 @@
       },
       options: {
         responsive : true,
+        maintainAspectRatio : false,
         plugins: {
           tooltip: {
             callbacks: {

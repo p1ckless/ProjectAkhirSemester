@@ -145,8 +145,7 @@ a .admin-greeting-name {
 
 .info-card {
   display: flex;
-  flex-wrap: wrap;
-  gap: 48px;
+  gap: 40px;
   margin-top: 20px;
   margin-bottom: 20px;
   margin-left: 350px;
@@ -276,19 +275,16 @@ li a {
 }
 
 .isiGrafik {
-  background-color: #FFFF;
+  background-color: white;
   padding: 20px;
-  width: fit-content;
   margin-top: 75px;
-  margin-left: 370px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);;
-  display: flex;
-  justify-content: center;
+  margin-left: 350px;
+  width: 850px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 #grafikLaporanPenjualan {
-  align-items: center;
-  display: inline-block;
-  width: 800px;
-  height: 400px;
+  width: 100% !important;
+  height: 400px !important;
 }

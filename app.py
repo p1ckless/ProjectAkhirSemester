@@ -39,8 +39,10 @@ def home():
     for hari in hasil_penjualan:
       hasil = sum(hasil_penjualan[hari].values())
       y_hasilPenjualan.append(hasil)
+    print(y_hasilPenjualan)
       
-    return render_template('index.html', data_penjualan=y_hasilPenjualan, 
+    return render_template('index.html', 
+    data_penjualan=y_hasilPenjualan, 
                         card_product=totalProduk, 
                         card_stock=stokMenipis, 
                         card_transaction=transaksiHariIni, 
