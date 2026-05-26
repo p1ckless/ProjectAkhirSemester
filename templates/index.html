@@ -5,238 +5,152 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Beranda Admin</title>
-  <!--Menghubungkan html dan css-->
-  <link rel="stylesheet" href="{{ url_for ('static', filename='style.css')}}"/>
-  <!--Import icon dari font awesome website-->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}"/>
   <script src="https://kit.fontawesome.com/5214fa6ca3.js" crossorigin="anonymous"></script>
-  <!-- Import font inter dari google font -->
   <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
   </style>
 </head>
-
 <body>
-  <!--Navbar-->
+
+  <!-- Navbar -->
   <nav>
     <div class="nav-bar">
+      <button class="hamburger" id="hamburger" aria-label="Toggle sidebar">
+        <i class="fa-solid fa-bars"></i>
+      </button>
       <div class="nav-left">
-        <img src="/static/image/logo.svg"
-        alt="Logo"
-        width="70"
-        height="70">
+        <img src="/static/image/logo.svg" alt="Logo" width="50" height="50">
       </div>
       <h1 class="nav-title">Inomart</h1>
-        
-
-        <ul class="nav-right">
-            <li>
-                <a href="#">
-                    <img src="/static/image/bell-notification-ui-svgrepo.svg"
-                         alt="Notifikasi"
-                         width="30"
-                         height="30">
-                </a>
-            </li>
-
-            <li>
-                <a href="#">
-                    <img src="/static/image/setting-svgrepo.svg"
-                         alt="Setting"
-                         width="30"
-                         height="30">
-                </a>
-            </li>    
-            <li>
-                <a href="#">
-                    <img src="/static/image/logout-line-svgrepo.svg"
-                         alt="Keluar"
-                         width="30"
-                         height="30">
-                </a>
-            </li>
-        </ul>
+      <ul class="nav-right">
+        <li><a href="#"><img src="/static/image/bell-notification-ui-svgrepo.svg" alt="Notifikasi" width="28" height="28"></a></li>
+        <li><a href="#"><img src="/static/image/setting-svgrepo.svg" alt="Setting" width="28" height="28"></a></li>
+        <li><a href="#"><img src="/static/image/logout-line-svgrepo.svg" alt="Keluar" width="28" height="28"></a></li>
+      </ul>
     </div>
   </nav>
 
-  <!--Sidebar-->
-  <div class="sidebar">
-    
+  <!-- Overlay -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
     <div class="admin-profile">
-      <h2 class="admin-menu"> Admin Menu </h2>
-      <a href="#">
-        <img src="static/image/profile.png" alt="admin-profile" class="admin-profile-picture"/>
-      </a>
+      <h2 class="admin-menu">Admin Menu</h2>
+      <a href="#"><img src="static/image/profile.png" alt="admin-profile" class="admin-profile-picture"/></a>
       <p class="admin-greeting">Selamat Datang</p>
-      <a href="#">
-        <p class="admin-greeting-name">Admin</p>
-      </a>
+      <a href="#"><p class="admin-greeting-name">Admin</p></a>
     </div>
-    
     <div class="sidebar-menu">
-      
       <div class="sidebar-item-information">
         <h3>Informasi</h3>
         <ul class="sidebar-list">
-          <li>
-            <a href="#">
-              <i class="fa-regular fa-map"></i>
-              <span>Lihat Denah</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="fa-solid fa-chart-column"></i>
-              <span>Laporan Penjualan</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="fa-solid fa-print"></i>
-              <span>Cetak Stok</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="fa-solid fa-cubes"></i>
-              <span>Manajemen Barang</span>
-            </a>
-          </li>
+          <li><a href="#"><i class="fa-regular fa-map"></i><span>Lihat Denah</span></a></li>
+          <li><a href="#"><i class="fa-solid fa-chart-column"></i><span>Laporan Penjualan</span></a></li>
+          <li><a href="#"><i class="fa-solid fa-print"></i><span>Cetak Stok</span></a></li>
+          <li><a href="#"><i class="fa-solid fa-cubes"></i><span>Manajemen Barang</span></a></li>
         </ul>
       </div>
-      
       <div class="sidebar-item-product">
         <h3>Pengelolaan Produk</h3>
         <ul class="sidebar-list">
-          <li>
-            <a href="#">
-              <i class="fa-solid fa-box"></i>
-              <span>Tambah Data Barang</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="fa-solid fa-pen-to-square"></i>
-              <span>Daftar Stok</span>
-            </a>
-          </li>
+          <li><a href="#"><i class="fa-solid fa-box"></i><span>Tambah Data Barang</span></a></li>
+          <li><a href="#"><i class="fa-solid fa-pen-to-square"></i><span>Daftar Stok</span></a></li>
         </ul>
       </div>
       <div class="sidebar-item-transaction">
         <h3>Transaksi</h3>
         <ul class="sidebar-list">
-          <li>
-            <a href="#">
-              <i class="fa-regular fa-alarm-clock"></i>
-              <span>Riwayat Transaksi</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="fa-solid fa-receipt"></i>
-              <span>Cek Transaksi</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="fa-solid fa-credit-card"></i>
-              <span>Cek Pembayaran </span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="fa-solid fa-check"></i>
-              <span>Siapkan Pesanan Pelanggan</span>
-            </a>
-          </li>
+          <li><a href="#"><i class="fa-regular fa-alarm-clock"></i><span>Riwayat Transaksi</span></a></li>
+          <li><a href="#"><i class="fa-solid fa-receipt"></i><span>Cek Transaksi</span></a></li>
+          <li><a href="#"><i class="fa-solid fa-credit-card"></i><span>Cek Pembayaran</span></a></li>
+          <li><a href="#"><i class="fa-solid fa-check"></i><span>Siapkan Pesanan Pelanggan</span></a></li>
         </ul>
       </div>
-      
       <div class="sidebar-item-another-option">
-        <h3>Opsi Lainnya</h3> 
+        <h3>Opsi Lainnya</h3>
         <ul class="sidebar-list">
-          <li>
-            <a href="#">
-              <i class="fa-solid fa-user"></i>
-              <span>Kelola Akun</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="fa-solid fa-calendar"></i>
-              <span>Riwayat Aktivitas</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="fa-solid fa-file"></i>
-              <span>Modifikasi Data</span>
-            </a>
-          </li>
+          <li><a href="#"><i class="fa-solid fa-user"></i><span>Kelola Akun</span></a></li>
+          <li><a href="#"><i class="fa-solid fa-calendar"></i><span>Riwayat Aktivitas</span></a></li>
+          <li><a href="#"><i class="fa-solid fa-file"></i><span>Modifikasi Data</span></a></li>
         </ul>
       </div>
     </div>
   </div>
 
-<!--Informasi Card-->
-  <div class="info-card">
-    <div class="card-value-product">
-      <div class="card-content-product">
-        <h3>Total Produk</h3>
-        <p>{{ card_product }}</p>
-      </div>
-      <!-- icon -->
-      <i class="fa-solid fa-box-open"></i>  
-    </div>
-    <div class="card-value-stock">
-      <div class="card-content-stock">
-        <h3>Stok Menipis</h3>
-        <p>{{ card_stock }}</p>
-      </div>
-      <!-- icon -->
-      <i class="fa-solid fa-circle-exclamation"></i>
-    </div>
-    <div class="card-value-transaction">
-      <div class="card-content-transaction">
-        <h3>Transaksi Hari Ini</h3>
-        <p>{{ card_transaction  }}</p>
-      </div>
-      <!-- icon -->
-      <i class="fa-brands fa-cash-app"></i>
-    </div>
-    <div class="card-value-income">
-      <div class="card-content-income">
-        <h3>Pendapatan</h3>
-        <p>{{ card_income }}</p>
-      </div>
-      <!-- icon -->
-    <i class="fa-solid fa-chart-bar"></i>
-    </div>
-  </div>
-  
-  <!--Grafik hasil penjualan-->
-  <!-- Grafik hasil penjualan -->
-  <div class="isiGrafik">
-    <canvas id="grafikLaporanPenjualan"></canvas>
-  </div>
+  <div class="main-content">
 
-  <!-- Breakdown -->
-  <div id="breakdownWrap" style="display:none;">
-    <div>
-      <p id="judulBreakdown"></p>
-      <button id="tutupBreakdown">Tutup ✕</button>
+    <!-- Info Card -->
+    <div class="info-card">
+      <div class="card-value-product">
+        <div class="card-content-product">
+          <h3>Total Produk</h3>
+          <p>{{ card_product }}</p>
+        </div>
+        <i class="fa-solid fa-box-open"></i>
+      </div>
+      <div class="card-value-stock">
+        <div class="card-content-stock">
+          <h3>Stok Menipis</h3>
+          <p>{{ card_stock }}</p>
+        </div>
+        <i class="fa-solid fa-circle-exclamation"></i>
+      </div>
+      <div class="card-value-transaction">
+        <div class="card-content-transaction">
+          <h3>Transaksi Hari Ini</h3>
+          <p>{{ card_transaction }}</p>
+        </div>
+        <i class="fa-brands fa-cash-app"></i>
+      </div>
+      <div class="card-value-income">
+        <div class="card-content-income">
+          <h3>Pendapatan</h3>
+          <p>{{ card_income }}</p>
+        </div>
+        <i class="fa-solid fa-chart-bar"></i>
+      </div>
     </div>
-    <div>
-      <div><p>Makanan</p><p id="dataMakanan">—</p></div>
-      <div><p>Minuman</p><p id="dataMinuman">—</p></div>
-      <div><p>Alat tulis</p><p id="dataAlatTulis">—</p></div>
+
+    <!-- Grafik Utama -->
+    <div class="isiGrafik">
+      <canvas id="grafikLaporanPenjualan"></canvas>
     </div>
-    <div style="position:relative; height:200px;">
-      <canvas id="chartBreakdown"></canvas>
+
+    <!-- Breakdown untuk perbandingan -->
+    <div id="breakdownWrap" style="display:none;">
+      <div class="breakdown-header">
+        <p id="judulBreakdown"></p>
+        <button id="tutupBreakdown">Tutup ✕</button>
+      </div>
+      <div class="kartuBreakdown">
+        <div><p>Makanan</p><p id="dataMakanan">—</p></div>
+        <div><p>Minuman</p><p id="dataMinuman">—</p></div>
+        <div><p>Alat tulis</p><p id="dataAlatTulis">—</p></div>
+      </div>
+      <div id="wrapChartBreakdown">
+        <canvas id="chartBreakdown"></canvas>
+      </div>
     </div>
+
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
+    const hamburger = document.getElementById('hamburger')
+    const sidebar = document.getElementById('sidebar')
+    const overlay = document.getElementById('overlay')
+    hamburger.addEventListener('click', function() {
+      sidebar.classList.toggle('sidebar-open')
+      overlay.classList.toggle('overlay-show')
+    })
+    overlay.addEventListener('click', function() {
+      sidebar.classList.remove('sidebar-open')
+      overlay.classList.remove('overlay-show')
+    })
+
+    
     const xHari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat']
     const yHasilPenjualan = {{ data_penjualan | tojson }}
     const grafikPenjualan = {{ grafik_penjualan | tojson }}
@@ -304,7 +218,7 @@
     function munculkanBreakdown(index) {
       const hari = xHari[index]
       const d = grafikPenjualan[hari]
-      document.getElementById('judulBreakdown').textContent = hari
+      document.getElementById('judulBreakdown').textContent = 'Breakdown — ' + hari
       document.getElementById('dataMakanan').textContent = d["makanan"].toLocaleString()
       document.getElementById('dataMinuman').textContent = d["minuman"].toLocaleString()
       document.getElementById('dataAlatTulis').textContent = d["alat tulis"].toLocaleString()
@@ -354,7 +268,5 @@
       }
     })
   </script>
-</body>
-</html>
 </body>
 </html>
