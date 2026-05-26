@@ -214,37 +214,39 @@
   </div>
   
   <!--Grafik hasil penjualan-->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Grafik hasil penjualan -->
   <div class="isiGrafik">
     <canvas id="grafikLaporanPenjualan"></canvas>
   </div>
 
-  <!-- bagian perbandingan Grafik -->
-  <div id="breakdownWrap">
-  <div>
-    <p id="judulBreakdown"></p>
-    <button id="tutupBreakdown">Tutup ✕</button>
+  <!-- Breakdown -->
+  <div id="breakdownWrap" style="display:none;">
+    <div>
+      <p id="judulBreakdown"></p>
+      <button id="tutupBreakdown">Tutup ✕</button>
+    </div>
+    <div>
+      <div><p>Makanan</p><p id="dataMakanan">—</p></div>
+      <div><p>Minuman</p><p id="dataMinuman">—</p></div>
+      <div><p>Alat tulis</p><p id="dataAlatTulis">—</p></div>
+    </div>
+    <div style="position:relative; height:200px;">
+      <canvas id="chartBreakdown"></canvas>
+    </div>
   </div>
-  <div>
-    <div><p>Makanan</p><p id="dataMakanan">—</p></div>
-    <div><p>Minuman</p><p id="dataMinuman">—</p></div>
-    <div><p>Alat tulis</p><p id="dataAlatTulis">—</p></div>
-  </div>
-  <div>
-    <canvas id="chartBreakdown"></canvas>
-  </div>
-</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
-    const xHari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat' ]
-    const yHasilPenjualan = {{data_penjualan | tojson}}
-    const grafikPenjualan = {{grafik_penjualan | tojson}}
+    const xHari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat']
+    const yHasilPenjualan = {{ data_penjualan | tojson }}
+    const grafikPenjualan = {{ grafik_penjualan | tojson }}
     const warnaGrafik = '#0080FF'
     const warnaGrafikClicked = '#FF6B35'
     let clickedBarIndex = null
     let grafikBreakdown = null
-    const grafik = document.getElementById('grafikLaporanPenjualan')
-    const backgroundColors = () => xHari.map((_, index) => index === clickedBarIndex ? warnaGrafikClicked : warnaGrafik)
-    const chartUtama =new Chart(document.getElementById('grafikLaporanPenjualan'), {
+    const backgroundColors = () => xHari.map((_, i) => i === clickedBarIndex ? warnaGrafikClicked : warnaGrafik)
+
+    const chartUtama = new Chart(document.getElementById('grafikLaporanPenjualan'), {
       type: 'bar',
       data: {
         labels: xHari,
@@ -257,30 +259,28 @@
         }]
       },
       options: {
-        responsive : true,
-        maintainAspectRatio : false,
+        responsive: true,
+        maintainAspectRatio: false,
         plugins: {
           tooltip: {
             callbacks: {
+              title: function(context) { return context[0].label },
               label: function(context) {
                 const hari = xHari[context.dataIndex]
-                const dataHari = grafikPenjualan[hari]
+                const d = grafikPenjualan[hari]
                 return [
-                  "Makanan:" + dataHari["makanan"].toLocaleString(),
-                  "Minuman:" + dataHari["minuman"].toLocaleString(),
-                  "Alat tulis:" + dataHari["alat tulis"].toLocaleString(),
-                  "Total" + context.parsed.y.toLocaleString()
+                  "Makanan: " + d["makanan"].toLocaleString(),
+                  "Minuman: " + d["minuman"].toLocaleString(),
+                  "Alat tulis: " + d["alat tulis"].toLocaleString(),
+                  "Total: " + context.parsed.y.toLocaleString()
                 ]
-              },
-              title: function(context) {
-                return [context[0].label]
+              }
             }
           }
-        }
         },
         scales: {
-          x: { grid: { display: false } , ticks: { autoSkip: false, maxRotation: 0, minRotation: 0 } },
-          y: { beginAtZero: true  },
+          x: { grid: { display: false }, ticks: { autoSkip: false } },
+          y: { beginAtZero: true }
         },
         onClick: function(evt, elements) {
           if (!elements.length) return
@@ -292,63 +292,69 @@
             clickedBarIndex = index
             munculkanBreakdown(index)
           }
-            chartUtama.data.datasets[0].backgroundColor = backgroundColors()
-            chartUtama.update()
+          chartUtama.data.datasets[0].backgroundColor = backgroundColors()
+          chartUtama.update()
         },
         onHover: function(evt, elements) {
           evt.native.target.style.cursor = elements.length ? 'pointer' : 'default'
         }
       }
     })
+
     function munculkanBreakdown(index) {
       const hari = xHari[index]
-      const dataHari = grafikPenjualan[hari]
+      const d = grafikPenjualan[hari]
       document.getElementById('judulBreakdown').textContent = hari
-      document.getElementById('dataMakanan').textContent = dataHari["makanan"].toLocaleString()
-      document.getElementById('dataMinuman').textContent = dataHari["minuman"].toLocaleString()
-      document.getElementById('dataAlatTulis').textContent = dataHari["alat tulis"].toLocaleString()
+      document.getElementById('dataMakanan').textContent = d["makanan"].toLocaleString()
+      document.getElementById('dataMinuman').textContent = d["minuman"].toLocaleString()
+      document.getElementById('dataAlatTulis').textContent = d["alat tulis"].toLocaleString()
       document.getElementById('breakdownWrap').style.display = 'block'
-
       if (grafikBreakdown) grafikBreakdown.destroy()
-
-      grafikBreakdown = new Chart(document.getElementById("chartBreakdown"), {
+      grafikBreakdown = new Chart(document.getElementById('chartBreakdown'), {
         type: 'bar',
-      data: {
-        labels: ['Makanan', 'Minuman', 'Alat tulis'],
-        datasets: [{
-          label: hari,
-          data: [dataHari["makanan"], dataHari["minuman"], dataHari["alat tulis"]],
-          backgroundColor: ['#639922', '#378ADD', '#D85A30'],
-          borderWidth: 0,
-          borderRadius: 4,
-        }]
-      },
-      options: {
-        responsive : true,
-        maintainAspectRatio : false,
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            callbacks: {
-              label: function(context) {
-                return "" + context.label + ";" + context.parsed.y.toLocaleString() + " unit"
+        data: {
+          labels: ['Makanan', 'Minuman', 'Alat tulis'],
+          datasets: [{
+            label: hari,
+            data: [d["makanan"], d["minuman"], d["alat tulis"]],
+            backgroundColor: ['#639922', '#378ADD', '#D85A30'],
+            borderWidth: 0,
+            borderRadius: 4,
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: function(ctx) {
+                  return ctx.label + ": " + ctx.parsed.y.toLocaleString() + " unit"
+                }
+              }
             }
+          },
+          scales: {
+            x: { grid: { display: false } },
+            y: { beginAtZero: true }
           }
-        },
-        scales: {
-          x: { grid: { display: false } },
-          y: { beginAtZero: true  },
-        },
-      },
-     })
+        }
+      })
     }
-      document.getElementById('tutupBreakdown').addEventListener('click', function() {
+
+    document.getElementById('tutupBreakdown').addEventListener('click', function() {
       clickedBarIndex = null
+      document.getElementById('breakdownWrap').style.display = 'none'
       chartUtama.data.datasets[0].backgroundColor = backgroundColors()
       chartUtama.update()
-      document.getElementById('breakdownWrap').style.display = 'none'
+      if (grafikBreakdown) {
+        grafikBreakdown.destroy()
+        grafikBreakdown = null
+      }
     })
-
-</script>
+  </script>
+</body>
+</html>
 </body>
 </html>
