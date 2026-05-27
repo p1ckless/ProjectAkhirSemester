@@ -137,29 +137,29 @@
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
-    const hamburger = document.getElementById('hamburger')
-    const sidebar = document.getElementById('sidebar')
-    const overlay = document.getElementById('overlay')
-    hamburger.addEventListener('click', function() {
-      sidebar.classList.toggle('sidebar-open')
-      overlay.classList.toggle('overlay-show')
+    const hamburger = document.getElementById("hamburger")
+    const sidebar = document.getElementById("sidebar")
+    const overlay = document.getElementById("overlay")
+    hamburger.addEventListener("click", function() {
+      sidebar.classList.toggle("sidebar-open")
+      overlay.classList.toggle("overlay-show")
     })
-    overlay.addEventListener('click', function() {
-      sidebar.classList.remove('sidebar-open')
-      overlay.classList.remove('overlay-show')
+    overlay.addEventListener("click", function() {
+      sidebar.classList.remove("sidebar-open")
+      overlay.classList.remove("overlay-show")
     })
 
     
-    const xHari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat']
+    const xHari = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat"]
     const yHasilPenjualan = {{ data_penjualan | tojson }}
     const grafikPenjualan = {{ grafik_penjualan | tojson }}
-    const warnaGrafik = '#0080FF'
-    const warnaGrafikClicked = '#FF6B35'
+    const warnaGrafik = "#0080FF"
+    const warnaGrafikClicked = "#FF6B35"
     let clickedBarIndex = null
     let grafikBreakdown = null
     const backgroundColors = () => xHari.map((_, i) => i === clickedBarIndex ? warnaGrafikClicked : warnaGrafik)
 
-    const chartUtama = new Chart(document.getElementById('grafikLaporanPenjualan'), {
+    const chartUtama = new Chart(document.getElementById("grafikLaporanPenjualan"), {
       type: 'bar',
       data: {
         labels: xHari,
@@ -217,13 +217,13 @@
     function munculkanBreakdown(index) {
       const hari = xHari[index]
       const dataHari = grafikPenjualan[hari]
-      document.getElementById('judulBreakdown').textContent = 'Breakdown — ' + hari
-      document.getElementById('dataMakanan').textContent = dataHari["makanan"].toLocaleString()
-      document.getElementById('dataMinuman').textContent = dataHari["minuman"].toLocaleString()
-      document.getElementById('dataAlatTulis').textContent = dataHari["alat tulis"].toLocaleString()
-      document.getElementById('breakdownWrap').style.display = 'block'
+      document.getElementById("judulBreakdown").textContent = "Breakdown — " + hari
+      document.getElementById("dataMakanan").textContent = dataHari["makanan"].toLocaleString()
+      document.getElementById("dataMinuman").textContent = dataHari["minuman"].toLocaleString()
+      document.getElementById("dataAlatTulis").textContent = dataHari["alat tulis"].toLocaleString()
+      document.getElementById("breakdownWrap").style.display = "block"
       if (grafikBreakdown) grafikBreakdown.destroy()
-      grafikBreakdown = new Chart(document.getElementById('chartBreakdown'), {
+      grafikBreakdown = new Chart(document.getElementById("chartBreakdown"), {
         type: 'bar',
         data: {
           labels: ['Makanan', 'Minuman', 'Alat tulis'],
@@ -256,9 +256,9 @@
       })
     }
 
-    document.getElementById('tutupBreakdown').addEventListener('click', function() {
+    document.getElementById("tutupBreakdown").addEventListener("click", function() {
       clickedBarIndex = null
-      document.getElementById('breakdownWrap').style.display = 'none'
+      document.getElementById("breakdownWrap").style.display = "none"
       chartUtama.data.datasets[0].backgroundColor = backgroundColors()
       chartUtama.update()
       if (grafikBreakdown) {
