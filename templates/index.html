@@ -181,11 +181,11 @@
               title: function(context) { return context[0].label },
               label: function(context) {
                 const hari = xHari[context.dataIndex]
-                const d = grafikPenjualan[hari]
+                const dataHari = grafikPenjualan[hari]
                 return [
-                  "Makanan: " + d["makanan"].toLocaleString(),
-                  "Minuman: " + d["minuman"].toLocaleString(),
-                  "Alat tulis: " + d["alat tulis"].toLocaleString(),
+                  "Makanan: " + dataHari["makanan"].toLocaleString(),
+                  "Minuman: " + dataHari["minuman"].toLocaleString(),
+                  "Alat tulis: " + dataHari["alat tulis"].toLocaleString(),
                   "Total: " + context.parsed.y.toLocaleString()
                 ]
               }
@@ -219,9 +219,9 @@
       const hari = xHari[index]
       const d = grafikPenjualan[hari]
       document.getElementById('judulBreakdown').textContent = 'Breakdown — ' + hari
-      document.getElementById('dataMakanan').textContent = d["makanan"].toLocaleString()
-      document.getElementById('dataMinuman').textContent = d["minuman"].toLocaleString()
-      document.getElementById('dataAlatTulis').textContent = d["alat tulis"].toLocaleString()
+      document.getElementById('dataMakanan').textContent = dataHari["makanan"].toLocaleString()
+      document.getElementById('dataMinuman').textContent = dataHari["minuman"].toLocaleString()
+      document.getElementById('dataAlatTulis').textContent = dataHari["alat tulis"].toLocaleString()
       document.getElementById('breakdownWrap').style.display = 'block'
       if (grafikBreakdown) grafikBreakdown.destroy()
       grafikBreakdown = new Chart(document.getElementById('chartBreakdown'), {
@@ -230,7 +230,7 @@
           labels: ['Makanan', 'Minuman', 'Alat tulis'],
           datasets: [{
             label: hari,
-            data: [d["makanan"], d["minuman"], d["alat tulis"]],
+            data: [dataHari["makanan"], dataHari["minuman"], dataHari["alat tulis"]],
             backgroundColor: ['#639922', '#378ADD', '#D85A30'],
             borderWidth: 0,
             borderRadius: 4,
