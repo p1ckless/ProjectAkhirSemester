@@ -241,8 +241,8 @@
             legend: { display: false },
             tooltip: {
               callbacks: {
-                label: function(ctx) {
-                  return ctx.label + ": " + ctx.parsed.y.toLocaleString() + " unit"
+                label: function(context) {
+                  return context.label + ": " + context.parsed.y.toLocaleString() + " unit"
                 }
               }
             }
