@@ -3,3 +3,9 @@
 DC2626 / Red
 22C55E / Green
 d9eeff / Gray (Background color)
+
+/// chart
+0080FF / main color 
+639922 / /                         / Green
+378ADD / / comparison colors       /  Blue
+D85A30 / /                         /  Red  
