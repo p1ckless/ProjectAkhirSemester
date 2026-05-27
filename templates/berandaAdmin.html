@@ -140,12 +140,15 @@
     const sidebar = document.getElementById("sidebar")
     const overlay = document.getElementById("overlay")
     hamburger.addEventListener("click", function() {
-      sidebar.classList.toggle("sidebar-open")
-      overlay.classList.toggle("overlay-show")
-    })
-    overlay.addEventListener("click", function() {
-      sidebar.classList.remove("sidebar-open")
-      overlay.classList.remove("overlay-show")
+      const mobileDevice = window.innerWidth <= 768
+      if (mobileDevice) {
+        sidebar.classList.toggle("sidebar-open")
+        overlay.classList.toggle("overlay-show")
+      } else {
+        sidebar.classList.toggle("sidebar-closed")
+        document.querySelector(".main-content").classList.toggle("main-content-expanded")
+        document.querySelector("nav").classList.toggle("nav-expanded")
+      }
     })
 
     
