@@ -42,7 +42,7 @@ def home():
       hasil = sum(hasil_penjualan[hari].values())
       y_hasilPenjualan.append(hasil)
       
-    return render_template('index.html', 
+    return render_template('berandaAdmin.html', 
     data_penjualan=y_hasilPenjualan, 
                         card_product=totalProduk, 
                         card_stock=stokMenipis, 
