@@ -17,12 +17,12 @@ def home():
         "alat tulis" : 2
       },
       "Selasa": {
-        "makanan" : 0,
+        "makanan" : 6,
         "minuman" : 5,
         "alat tulis" : 5
       },
       "Rabu": {
-        "makanan" : 5,
+        "makanan" : 7,
         "minuman" : 5,
         "alat tulis" : 5
       },
