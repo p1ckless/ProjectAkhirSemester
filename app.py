@@ -43,7 +43,7 @@ def home():
       y_hasilPenjualan.append(hasil)
       
     return render_template('berandaAdmin.html', 
-    data_penjualan=y_hasilPenjualan, 
+                        data_penjualan=y_hasilPenjualan, 
                         card_product=totalProduk, 
                         card_stock=stokMenipis, 
                         card_transaction=transaksiHariIni, 
